@@ -1,5 +1,3 @@
-// Login.js dosyası içindeki return (...) kısmını bununla değiştirin
-
 import React, { useState } from "react"; // useState import edildiğinden emin olun
 import { useNavigate, Link } from "react-router-dom"; // useNavigate ve Link import edildiğinden emin olun
 import { login } from "../services/authService"; // login fonksiyonu import edildiğinden emin olun
@@ -19,12 +17,16 @@ export default function Login() {
     e.preventDefault();
     try {
       const res = await login(form);
-      localStorage.setItem("token", res.token);
+      console.log("Login cevabı:", res); // 🔥 BUNU EKLE
+      localStorage.setItem("token", res.token); // ✔ Doğru olan bu!
+
+
       navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Giriş başarısız.");
     }
   };
+
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md">
@@ -32,7 +34,7 @@ export default function Login() {
       <h2 className={`text-3xl font-extrabold text-center text-gray-800 ${customFontClass}`}>
         Giriş Yap
       </h2>
-      
+
       {/* Başlık Altına Dekoratif Çizgi: Daha belirgin */}
       <div className="h-1.5 w-20 bg-blue-600 mx-auto rounded-full mt-2 mb-10"></div> {/* Yükseklik, genişlik, renk, boşluklar arttırıldı */}
 
