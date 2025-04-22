@@ -12,9 +12,9 @@ export default function MainLayout() {
     const categoryActiveStyle = "bg-blue-100 text-blue-900 font-semibold";
 
     return (
-        <div className="flex h-screen bg-gray-100">
-            {/* Sidebar */}
-            <aside className="w-64 bg-white shadow-lg p-6 flex flex-col gap-8">
+        <div className="flex h-screen bg-gray-100 overflow-hidden"> {/* Overall container */}
+            {/* Sidebar - fixed width, its own potential scroll */}
+            <aside className="w-64 bg-white shadow-lg p-6 flex flex-col gap-8 overflow-y-auto">
                 <div className="text-2xl font-extrabold text-green-700 text-center mb-2 tracking-wide">
                     Gider Takip
                 </div>
@@ -71,7 +71,7 @@ export default function MainLayout() {
                     </ul>
                 </div>
 
-                {/* Dashboard */}
+                {/* Dashboard Link */}
                 <div className="pt-4 border-t border-gray-200 mt-auto">
                     <Link
                         to="/dashboard"
@@ -84,8 +84,9 @@ export default function MainLayout() {
                 </div>
             </aside>
 
-            {/* Dinamik içerik */}
-            <main className="flex-1 p-8 overflow-y-auto">
+            {/* Dynamic content area - now has the gradient background, padding, and no scroll */}
+            {/* Classes updated as requested */}
+            <main className="flex-1 h-full bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 p-6 md:p-10 overflow-hidden">
                 <Outlet />
             </main>
         </div>
