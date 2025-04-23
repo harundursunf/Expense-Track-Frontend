@@ -9,13 +9,10 @@ export default function AllCategories() {
   }, []);
 
   const fetchCategories = () => {
-    // Simulate loading delay - remove in production
-    // setTimeout(() => {
       axios
         .get("https://localhost:7089/api/Categorys/getall")
         .then((res) => setCategories(res.data))
         .catch((err) => console.error("Kategoriler alınamadı", err));
-    // }, 500); // Optional: Add loading indicator if needed
   };
 
   const handleDelete = (id) => {
@@ -43,6 +40,7 @@ export default function AllCategories() {
         .put("https://localhost:7089/api/Categorys/update", {
           id: category.id, // Ensure ID is included for update
           categoryName: trimmedName,
+          userId: category.userId // Bunu ekle!
         })
         .then(() => {
           alert("Kategori başarıyla güncellendi!");

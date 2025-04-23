@@ -2,8 +2,8 @@ import React, { useState } from "react"; // useState import edildiğinden emin o
 import { useNavigate, Link } from "react-router-dom"; // useNavigate ve Link import edildiğinden emin olun
 import { login } from "../services/authService"; // login fonksiyonu import edildiğinden emin olun
 
-// Custom font adınız (tailwind.config.js'ye eklediyseniz)
-const customFontClass = "font-poppins"; // 'font-poppins' yerine kendi font adınızı yazın
+
+const customFontClass = "font-poppins"; 
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -17,8 +17,8 @@ export default function Login() {
     e.preventDefault();
     try {
       const res = await login(form);
-      console.log("Login cevabı:", res); // 🔥 BUNU EKLE
-      localStorage.setItem("token", res.token); // ✔ Doğru olan bu!
+      console.log("Login cevabı:", res); 
+      localStorage.setItem("token", res.token); 
 
 
       navigate("/dashboard");
