@@ -37,7 +37,6 @@ export default function Register() {
 
       {error && <p className="text-red-500 text-sm text-center mb-6">{error}</p>}
 
-      {/* Kullanıcı Adı */}
       <input
         type="text"
         name="username"
@@ -48,7 +47,6 @@ export default function Register() {
         required
       />
 
-      {/* E-posta */}
       <input
         type="email"
         name="email"
@@ -59,7 +57,6 @@ export default function Register() {
         required
       />
 
-      {/* Şifre */}
       <input
         type="password"
         name="password"
